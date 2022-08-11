@@ -27,30 +27,30 @@ FROM book;
 --Написать запрос, куда включить автора, название книги и новую цену, последний столбец назвать new_price. 
 --Значение округлить до двух знаков после запятой.
 SELECT author, title,
-ROUND(IF(author = 'Булгаков М.А.', price*1.1, IF(author = 'Есенин С.А.', price*1.05,price)),2) AS new_price
+      ROUND(IF(author = 'Булгаков М.А.', price*1.1, IF(author = 'Есенин С.А.', price*1.05,price)),2) AS new_price
 FROM book;
 
 --Задание вывести автора, название  и цены тех книг, количество которых меньше 10.
 SELECT author, title,price
-FROM book
+      FROM book
 WHERE amount < 10;
 
 --Задание вывести название, автора,  цену  и количество всех книг, цена которых меньше 500 или больше 600,
 -- а стоимость всех экземпляров этих книг больше или равна 5000.
 SELECT title,author,price,amount
-FROM book
+     FROM book
 WHERE (price<500 OR price >600) AND price * amount >= 5000;
 
 --Задание вывести название и авторов тех книг, цены которых принадлежат интервалу от 540.50 до 800 (включая границы),
 --а количество или 2, или 3, или 5, или 7 .
 SELECT title, author
-FROM book
+      FROM book
 WHERE price>=540.50 AND Price<=800 AND amount IN(2, 3, 5, 7);
 
 --Задание вывести  автора и название  книг, количество которых принадлежит интервалу от 2 до 14 (включая границы).
 --Информацию  отсортировать сначала по авторам (в обратном алфавитном порядке), а затем по названиям книг (по алфавиту).
 SELECT author,title
-FROM book
+     FROM book
 WHERE amount >=2 AND amount <=14 --WHERE amount BETWEEN  2 AND 14
 ORDER BY 1 DESC, 2 ASC
 
@@ -59,6 +59,6 @@ ORDER BY 1 DESC, 2 ASC
 --между фамилией автора и инициалами обязателен пробел, инициалы записываются без пробела в формате: буква, точка, буква, точка.
 --Информацию отсортировать по названию книги в алфавитном порядке.
 SELECT title,author
-FROM book
+      FROM book
 WHERE title LIKE "_% %" AND author LIKE "%С.%"
 ORDER BY 1
