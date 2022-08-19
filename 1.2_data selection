@@ -31,13 +31,13 @@ SELECT author, title,
 FROM book;
 
 --Задание вывести автора, название  и цены тех книг, количество которых меньше 10.
-SELECT author, title,price
+SELECT author, title, price
       FROM book
 WHERE amount < 10;
 
 --Задание вывести название, автора,  цену  и количество всех книг, цена которых меньше 500 или больше 600,
 -- а стоимость всех экземпляров этих книг больше или равна 5000.
-SELECT title,author,price,amount
+SELECT title, author, price, amount
      FROM book
 WHERE (price<500 OR price >600) AND price * amount >= 5000;
 
@@ -49,7 +49,7 @@ WHERE price>=540.50 AND Price<=800 AND amount IN(2, 3, 5, 7);
 
 --Задание вывести  автора и название  книг, количество которых принадлежит интервалу от 2 до 14 (включая границы).
 --Информацию  отсортировать сначала по авторам (в обратном алфавитном порядке), а затем по названиям книг (по алфавиту).
-SELECT author,title
+SELECT author, title
      FROM book
 WHERE amount >=2 AND amount <=14 --WHERE amount BETWEEN  2 AND 14
 ORDER BY 1 DESC, 2 ASC
@@ -58,7 +58,7 @@ ORDER BY 1 DESC, 2 ASC
 --Считать, что в названии слова отделяются друг от друга пробелами и не содержат знаков препинания, 
 --между фамилией автора и инициалами обязателен пробел, инициалы записываются без пробела в формате: буква, точка, буква, точка.
 --Информацию отсортировать по названию книги в алфавитном порядке.
-SELECT title,author
+SELECT title, author
       FROM book
 WHERE title LIKE "_% %" AND author LIKE "%С.%"
 ORDER BY 1
